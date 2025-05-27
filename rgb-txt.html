@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TService - RGB Text Generator</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/x-icon" href="img/TSLogo.png"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <style>
+    /* Additional styles for RGB Text Generator */
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #2C2C2D;
+      border-radius: 8px;
+    }
+    .container h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .input-group {
+      margin-bottom: 1rem;
+    }
+    .input-label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input[type="color"],
+    input[type="number"],
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .preview {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #E4B371;
+      color: #141516;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #d4a65f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar">
+    <a href="index.html"><div class="logo"><img src="img/Enhanced.png" alt="TService Logo"/></div></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#work">Our Services</a></li>
+        <li><a href="index.html#contact">Work With Us</a></li>
+        <li><a href="index.html#order" class="order-btn">Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+
+ <!-- RGB Text Generator Section -->
+  <div class="container">
+    <h2>RGB Text Generator</h2>
+    <div class="input-group">
+      <label class="input-label" for="colorAmount">Colors Amount:</label>
+      <input type="number" id="colorAmount" value="2" min="2" max="6" onchange="updateColorInputs()"/>
+    </div>
+    <div id="colorInputs">
+      <div class="input-group">
+        <label class="input-label" for="color1">Start Color:</label>
+        <input type="color" id="color1" value="#FF0000"/>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="color2">End Color:</label>
+        <input type="color" id="color2" value="#0000FF"/>
+      </div>
+    </div>
+    <script>
+      function updateColorInputs() {
+        const colorAmount = parseInt(document.getElementById("colorAmount").value);
+        const colorInputsDiv = document.getElementById("colorInputs");
+        colorInputsDiv.innerHTML = "";
+        for (let i = 1; i <= colorAmount; i++) {
+          const label = i === 1 ? "Start Color:" : (i === colorAmount ? "End Color:" : `Color ${i}:`);
+          colorInputsDiv.innerHTML += `
+            <div class="input-group">
+              <label class="input-label" for="color${i}">${label}</label>
+              <input type="color" id="color${i}" value="${defaultColor(i, colorAmount)}"/>
+            </div>
+          `;
+        }
+      }
+      function defaultColor(i, total) {
+        // Simple default: interpolate between red and blue
+        const start = [255,0,0], end = [0,0,255];
+        const r = Math.round(start[0] + (end[0] - start[0]) * (i-1)/(total-1));
+        const g = Math.round(start[1] + (end[1] - start[1]) * (i-1)/(total-1));
+        const b = Math.round(start[2] + (end[2] - start[2]) * (i-1)/(total-1));
+        return `#${r.toString(16).padStart(2,"0")}${g.toString(16).padStart(2,"0")}${b.toString(16).padStart(2,"0")}`;
+      }
+      // Initialize on load
+      updateColorInputs();
+    </script>
+    <div class="input-group">
+      <label class="input-label" for="charPerColor">Characters per Color:</label>
+      <input type="number" id="charPerColor" value="1" min="1"/>
+    </div>
+    <div class="input-group">
+      <label class="input-label" for="inputText">Input Text:</label>
+      <input type="text" id="inputText" placeholder="Enter your text here"/>
+    </div>
+    <div class="input-group">
+      <label class="input-label">Text Formatting:</label>
+      <label><input type="checkbox" id="bold"/> Bold</label>
+      <label><input type="checkbox" id="italic"/> Italic</label>
+      <label><input type="checkbox" id="underline"/> Underline</label>
+      <label><input type="checkbox" id="strikethrough"/> Strikethrough</label>
+    </div>
+    <button onclick="generateGradient()">Generate Gradient</button>
+    <div class="preview" id="previewText">Preview will appear here...</div>
+    <textarea id="outputCode" rows="4" readonly placeholder="Output code will appear here..."></textarea>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- About TService Section -->
+      <div class="footer-about">
+        <h3 class="footer-title">About TService</h3>
+        <p class="footer-description">
+          TService is your ultimate platform for website creation, Minecraft server management, and various services for gamers and developers. We provide fast, affordable, and professional services.
+        </p>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="footer-links">
+        <h3 class="footer-title">Quick Links</h3>
+        <ul class="footer-list">
+          <li><a href="index.html#about-us"><i class="ri-information-line"></i> About Us</a></li>
+          <li><a href="index.html#contact"><i class="ri-mail-line"></i> Contact</a></li>
+          <li><a href="index.html#services"><i class="ri-settings-2-line"></i> Our Services</a></li>
+          <li><a href="index.html#terms"><i class="ri-file-list-3-line"></i> Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media Section -->
+      <div class="footer-social">
+        <h3 class="footer-title">Follow Us</h3>
+        <div class="social-links">
+          <a href="https://discord.com" class="social-icon" title="Discord" target="_blank"><i class="ri-discord-fill"></i></a>
+          <a href="https://youtube.com" class="social-icon" title="YouTube" target="_blank"><i class="ri-youtube-line"></i></a>
+          <a href="https://github.com" class="social-icon" title="GitHub" target="_blank"><i class="ri-github-line"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 TService | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    function generateGradient() {
+      const color1 = document.getElementById("color1").value;
+      const color2 = document.getElementById("color2").value;
+      const charPerColor = parseInt(document.getElementById("charPerColor").value);
+      const inputText = document.getElementById("inputText").value;
+      const isBold = document.getElementById("bold").checked;
+      const isItalic = document.getElementById("italic").checked;
+      const isUnderline = document.getElementById("underline").checked;
+      const isStrikethrough = document.getElementById("strikethrough").checked;
+
+      let gradientText = "";
+      let gradientCode = "";
+
+      for (let i = 0; i < inputText.length; i++) {
+        const ratio = i / inputText.length;
+        const red = Math.round(parseInt(color1.substr(1, 2), 16) * (1 - ratio) + parseInt(color2.substr(1, 2), 16) * ratio);
+        const green = Math.round(parseInt(color1.substr(3, 2), 16) * (1 - ratio) + parseInt(color2.substr(3, 2), 16) * ratio);
+        const blue = Math.round(parseInt(color1.substr(5, 2), 16) * (1 - ratio) + parseInt(color2.substr(5, 2), 16) * ratio);
+        const colorHex = `#${red.toString(16).padStart(2, '0')}${green.toString(16).padStart(2, '0')}${blue.toString(16).padStart(2, '0')}`;
+
+        let style = `color:${colorHex};`;
+        if (isBold) style += " font-weight:bold;";
+        if (isItalic) style += " font-style:italic;";
+        if (isUnderline) style += " text-decoration:underline;";
+        if (isStrikethrough) style += " text-decoration:line-through;";
+
+        gradientText += `<span style="${style}">${inputText[i]}</span>`;
+
+        let codes = "";
+        if (isBold) codes += "&l";
+        if (isItalic) codes += "&o";
+        if (isUnderline) codes += "&n";
+        if (isStrikethrough) codes += "&m";
+        gradientCode += `&${colorHex.substr(1)}${codes}${inputText[i]}`;
+      }
+
+      document.getElementById("previewText").innerHTML = gradientText;
+      document.getElementById("outputCode").value = gradientCode;
+    }
+  </script>
+
+</body>
+</html>

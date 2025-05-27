@@ -1,0 +1,650 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Minecraft', sans-serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navigation Bar */
+/* Navbar styling for glass effect */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1); /* Transparent background */
+  backdrop-filter: blur(10px); /* Adds blur effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+  z-index: 1000; /* Ensure navbar stays on top */
+  margin: 20px;
+  width: calc(100% - 50px); /* 50px on each side */
+  padding: 1rem 2rem; /* Internal padding */
+  animation: floatHero 3s ease-in-out infinite;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffdd57; /* Hover effect color */
+}
+
+/* Adjust space below navbar */
+.hero {
+  padding-top: 6rem; /* Push hero content down to avoid overlap with navbar */
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  color: #F3BA2F;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.logo:hover{
+  scale: 1.1;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 1.5rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #F3BA2F;
+  border-bottom: 2px solid #F3BA2F;
+}
+
+.order-btn {
+  padding: 0.5rem 1.5rem;
+  background-color: #F3BA2F;
+  color: #111111;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.order-btn:hover {
+  background-color: white;
+  color: #F3BA2F;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-image: url('img/background-img.png'); /* Replace with actual background image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-top: 5rem; /* Adjust for fixed navbar */
+  color: #ffffff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay for dark effect */
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 600px;
+  padding: 2rem;
+  margin: 0 auto; /* Center align hero content */
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  animation: floatHero 3s ease-in-out infinite;
+  font-family: Minecraft;
+}
+
+.hero-title span {
+  color: #F3BA2F;
+  text-shadow: 2px 2px 10px rgba(243, 186, 47, 0.8);
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+  color: #dcdcdc;
+  animation: floatHero 3s ease-in-out infinite;
+  font-family: minecraft;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center; /* Center align buttons */
+  gap: 1rem;
+  margin-top: 1.5rem;
+  animation: floatHero 3s ease-in-out infinite;
+}
+
+.button {
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.join-discord {
+  background-color: #F3BA2F;
+  color: #111111;
+}
+
+.learn-more {
+  background-color: transparent;
+  color: #F3BA2F;
+  border: 2px solid #F3BA2F;
+}
+
+.join-discord:hover, .learn-more:hover {
+  transform: scale(1.05);
+}
+
+.learn-more:hover {
+  background-color: #F3BA2F;
+  color: #111111;
+}
+
+/* Adjust hero styling for content overlay */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 5rem; /* Adjust for fixed navbar */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Adds a dark overlay for readability */
+  z-index: 0; /* Overlay to improve text readability */
+}
+
+/* Hero content styling */
+.hero-content {
+  position: relative;
+  max-width: 600px;
+  padding: 2rem;
+  margin: 0 auto; /* Center align hero content */
+  z-index: 1; /* Ensure content is above video and overlay */
+}
+
+/* OUR SERVICES section styling */
+.our-services {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #020101;
+  color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+}
+
+.our-services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #F9A826;
+  animation: floatHero 3s ease-in-out infinite;
+}
+
+.our-services p {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+  animation: floatHero 3s ease-in-out infinite;
+}
+
+.service-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: floatHero 3s ease-in-out infinite;
+}
+
+.service-card {
+  position: relative; /* For absolute positioning of the description */
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.1);
+}
+
+.service-card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Description Styling */
+.service-description {
+  position: absolute; /* Absolute positioning inside the card */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 0.9rem;
+  transform: translateY(100%); /* Hidden initially */
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-description {
+  transform: translateY(0); /* Slide up on hover */
+}
+
+.about-us {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #020101;
+  color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.about-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #F9A826;
+  animation: floatHero 3s ease-in-out infinite;
+}
+
+.abous-us p {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+  animation: floatHero 3s ease-in-out infinite;
+  width: 50px;
+}
+
+.about-us-desc {
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+  color: #dcdcdc;
+  animation: floatHero 3s ease-in-out infinite;
+  font-family: minecraft;
+  width: 1100px;
+  margin-left: 100px;
+}
+
+/* RGB Text Generator Section */
+.container {
+  max-width: 900px;
+  min-width: 320px;
+  width: 90vw;
+  margin: 7rem auto 2rem auto; /* Yeh line badli gayi hai: 7rem top margin */
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  background: rgba(20, 20, 20, 0.98);
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.45);
+  border: 2px solid #F3BA2F;
+  font-family: 'Minecraft', sans-serif;
+  display: block;
+}
+
+.container h2 {
+  color: #F3BA2F;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 8px #000;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.input-label {
+  min-width: 140px;
+  color: #F9A826;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+input[type="color"] {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0004;
+}
+
+input[type="number"],
+input[type="text"],
+textarea {
+  flex: 1 1 200px;
+  padding: 0.7rem 1rem;
+  border: 2px solid #F3BA2F;
+  border-radius: 8px;
+  background: #181818;
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Minecraft', sans-serif;
+  margin-bottom: 0.2rem;
+  transition: border 0.2s;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #F9A826;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  accent-color: #F3BA2F;
+  margin-right: 0.3rem;
+  transform: scale(1.2);
+}
+
+.input-group label {
+  margin-right: 1.2rem;
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Minecraft', sans-serif;
+}
+
+button {
+  background: linear-gradient(90deg, #F3BA2F 60%, #F9A826 100%);
+  color: #181818;
+  font-family: 'Minecraft', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.7rem 2.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px #0006;
+  margin-top: 0.5rem;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #F9A826 60%, #F3BA2F 100%);
+  color: #111;
+  transform: scale(1.04);
+}
+
+.preview {
+  font-size: 1.25rem;
+  margin: 1.5rem 0 1rem 0;
+  min-height: 2.5rem;
+  background: #232323;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  color: #fff;
+  font-family: 'Minecraft', sans-serif;
+  word-break: break-word;
+  box-shadow: 0 1px 6px #0003;
+}
+
+textarea#outputCode {
+  background: #181818;
+  color: #F3BA2F;
+  border: 2px solid #F3BA2F;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Minecraft', monospace;
+  margin-top: 0.5rem;
+  resize: vertical;
+  box-shadow: 0 1px 6px #0002;
+  width: 100%;
+}
+
+/* Responsive for mobile */
+@media (max-width: 1000px) {
+  .container {
+    padding: 1rem 0.5rem;
+    max-width: 99vw;
+  }
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .input-label {
+    min-width: unset;
+  }
+}
+
+  
+ /* General Footer Styles */
+ .footer {
+  background-color: #050201; /* Dark background for a professional, gaming look */
+  color: #FFFFFF; /* White text */
+  padding: 40px 20px;
+  font-family: 'minecraft', sans-serif;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer Section Titles */
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #F3BA2F; /* Gold color for titles */
+  text-transform: uppercase;
+  padding-left: 10px; /* Align the title with the list items */
+}
+
+/* About Us Section */
+.footer-about {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-description {
+  font-size: 14px;
+  color: #B0B0B0; /* Light gray text */
+  line-height: 1.6;
+  padding-left: 10px; /* Align with the title */
+}
+
+/* Quick Links Section */
+.footer-links {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-list {
+  list-style: none;
+  padding-left: 10px; /* Align the list items with the title */
+}
+
+.footer-list li {
+  margin-bottom: 10px;
+}
+
+.footer-list a {
+  text-decoration: none;
+  color: #FFFFFF; /* White text */
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-list a:hover {
+  color: #F3BA2F; /* Gold color on hover */
+}
+
+/* Social Media Section */
+.footer-social {
+  flex: 1;
+  min-width: 250px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  padding-left: 10px; /* Align with the title */
+}
+
+.social-icon {
+  color: #F3BA2F; /* Gold color */
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 24px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #F3BA2F; /* Gold color on hover */
+  color: #0D0D0D; /* Dark background for contrast */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 40px;
+  color: #B0B0B0; /* Light gray text */
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .footer-about, .footer-links, .footer-social {
+      text-align: left;
+  }
+} 
+
+
+@keyframes floatHero {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-8px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(50, 50, 50, 0.5); /* Light black color for scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000; /* Color of the scrollbar thumb */
+  border-radius: 50px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555; /* Color when hovering over the thumb */
+}
+
+* {
+  scrollbar-width: thin; /* Makes scrollbar thinner for Firefox */
+  scrollbar-color: #F3BA2F #020101; /* Thumb color and light black track color for Firefox */
+}
